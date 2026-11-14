@@ -5,11 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#6c3ce9">
-  <meta name="description" content="Contact Robinson Macwan for support and general inquiries.">
+
+  <meta name="description" content="Contact Robinson Macwan for support, feedback and general inquiries.">
+
   <title>Contact Us | Robinson Macwan</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -85,7 +88,7 @@
       background: white;
       padding: 40px;
       border-radius: 24px;
-      box-shadow: 0 15px 50px rgba(72, 44, 130, 0.12);
+      box-shadow: 0 15px 50px rgba(72,44,130,0.12);
       animation: slideUp 0.7s ease;
     }
 
@@ -116,7 +119,7 @@
     .info-box {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 15px;
       background: #f8f6ff;
       border: 1px solid #eee9ff;
       padding: 20px;
@@ -158,7 +161,7 @@
     .info-content a {
       color: #6337d4;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       overflow-wrap: anywhere;
     }
@@ -169,18 +172,39 @@
 
     .copy-btn {
       border: none;
-      background: #6c3ce9;
-      color: white;
-      padding: 10px 13px;
+      background: #ebe4ff;
+      color: #6337d4;
+      padding: 11px 15px;
       border-radius: 9px;
       cursor: pointer;
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 700;
       transition: 0.3s;
+      white-space: nowrap;
     }
 
     .copy-btn:hover {
-      background: #5125c9;
+      background: #6337d4;
+      color: white;
+    }
+
+    .email-btn {
+      display: block;
+      text-align: center;
+      background: linear-gradient(135deg, #6337d4, #9165f5);
+      color: white;
+      padding: 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 20px;
+      transition: 0.3s;
+      box-shadow: 0 6px 15px rgba(108,60,233,0.15);
+    }
+
+    .email-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(108,60,233,0.25);
     }
 
     .availability {
@@ -190,7 +214,7 @@
       color: #218653;
       font-size: 13px;
       font-weight: 600;
-      margin-top: 8px;
+      margin-top: 10px;
     }
 
     .dot {
@@ -231,7 +255,7 @@
 
       .info-box {
         padding: 15px 12px;
-        gap: 12px;
+        gap: 10px;
       }
 
       .copy-btn {
@@ -243,22 +267,30 @@
 
 <body>
 
+  <!-- Header -->
   <header class="hero">
     <h1>Get in Touch 👋</h1>
-    <p>Have a question or need assistance?<br>
-       We're always happy to hear from you.</p>
+    <p>
+      Have a question or need assistance?<br>
+      We're always happy to hear from you.
+    </p>
   </header>
 
+  <!-- Contact Section -->
   <main class="container">
+
     <section class="contact-card">
 
       <h2 class="card-title">Contact Information</h2>
+
       <p class="subtitle">
         Reach out to us for support, feedback, or general inquiries.
         We'll be happy to assist you.
       </p>
 
+      <!-- Email -->
       <div class="info-box">
+
         <div class="icon">✉️</div>
 
         <div class="info-content">
@@ -268,55 +300,100 @@
           </a>
         </div>
 
-        <button class="copy-btn" onclick="copyEmail()">
-          Copy
+        <button class="copy-btn" id="copyBtn" onclick="copyEmail()">
+          📋 Copy
         </button>
+
       </div>
 
+      <!-- Operating Hours -->
       <div class="info-box">
+
         <div class="icon">🕒</div>
 
         <div class="info-content">
           <h3>Operating Hours</h3>
+
           <strong>Monday – Friday</strong>
+
           <p style="font-size:14px; margin-top:6px; color:#555;">
             9:00 AM – 6:00 PM (IST)
           </p>
+
           <div class="availability">
             <span class="dot"></span>
-            Business Hours
+            Support Hours
           </div>
         </div>
+
       </div>
 
+      <!-- Send Email Button -->
+      <a
+        class="email-btn"
+        href="mailto:robinsneha10@gmail.com?subject=Support%20Request&body=Hello%2C%0A%0AI%20need%20assistance%20regarding%3A%0A%0A"
+      >
+        ✉️ Send Email
+      </a>
+
+      <!-- Note -->
       <div class="note">
         💜 We value your feedback and appreciate you
         taking the time to contact us.
       </div>
 
     </section>
+
   </main>
 
+  <!-- Footer -->
   <footer>
-    © <span id="year"></span> Robinson Macwan. All rights reserved.
+    © <span id="year"></span> Robinson Macwan.
+    All rights reserved.
     <p style="margin-top:7px;">Made with ❤️</p>
   </footer>
 
+  <!-- JavaScript -->
   <script>
-    function copyEmail() {
-      navigator.clipboard.writeText("robinsneha10@gmail.com")
-        .then(() => {
-          const btn = document.querySelector(".copy-btn");
-          btn.textContent = "Copied!";
-          setTimeout(() => btn.textContent = "Copy", 2000);
-        })
-        .catch(() => {
-          window.location.href = "mailto:robinsneha10@gmail.com";
-        });
+
+    // Copy Email
+    async function copyEmail() {
+
+      const email = "robinsneha10@gmail.com";
+      const btn = document.getElementById("copyBtn");
+
+      try {
+        await navigator.clipboard.writeText(email);
+
+        btn.textContent = "✓ Copied!";
+
+        setTimeout(() => {
+          btn.textContent = "📋 Copy";
+        }, 2000);
+
+      } catch (error) {
+
+        const textarea = document.createElement("textarea");
+        textarea.value = email;
+
+        document.body.appendChild(textarea);
+        textarea.select();
+
+        document.execCommand("copy");
+        textarea.remove();
+
+        btn.textContent = "✓ Copied!";
+
+        setTimeout(() => {
+          btn.textContent = "📋 Copy";
+        }, 2000);
+      }
     }
 
+    // Dynamic Copyright Year
     document.getElementById("year").textContent =
       new Date().getFullYear();
+
   </script>
 
 </body>
