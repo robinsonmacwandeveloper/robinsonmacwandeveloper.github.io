@@ -1,39 +1,323 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Robinson Macwan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#6c3ce9">
+  <meta name="description" content="Contact Robinson Macwan for support and general inquiries.">
+  <title>Contact Us | Robinson Macwan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fafafa;
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      background: #f5f3ff;
+      color: #24213a;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #5125c9, #8055ed, #a477f5);
+      color: white;
       text-align: center;
-      padding: 50px;
+      padding: 75px 20px 135px;
+      position: relative;
+      overflow: hidden;
     }
-    h1 {
-      color: #6a1b9a;
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
     }
-    .card {
-      background: #fff;
-      display: inline-block;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 400px;
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      top: -100px;
+      left: -70px;
     }
-    a {
-      color: #6a1b9a;
+
+    .hero::after {
+      width: 300px;
+      height: 300px;
+      bottom: -190px;
+      right: -50px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .hero p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #eee8ff;
+      position: relative;
+    }
+
+    .container {
+      width: min(92%, 650px);
+      margin: -75px auto 50px;
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+
+    .contact-card {
+      background: white;
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 15px 50px rgba(72, 44, 130, 0.12);
+      animation: slideUp 0.7s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card-title {
+      font-size: 23px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #77758a;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .info-box {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: #f8f6ff;
+      border: 1px solid #eee9ff;
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      transition: 0.3s;
+    }
+
+    .info-box:hover {
+      transform: translateY(-4px);
+      border-color: #b7a0f7;
+      box-shadow: 0 8px 20px rgba(108,60,233,0.08);
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      min-width: 50px;
+      border-radius: 14px;
+      background: #ebe4ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 23px;
+    }
+
+    .info-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .info-content h3 {
+      font-size: 14px;
+      color: #77758a;
+      margin-bottom: 7px;
+      font-weight: 500;
+    }
+
+    .info-content a {
+      color: #6337d4;
       text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .info-content a:hover {
+      text-decoration: underline;
+    }
+
+    .copy-btn {
+      border: none;
+      background: #6c3ce9;
+      color: white;
+      padding: 10px 13px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .copy-btn:hover {
+      background: #5125c9;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #218653;
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background: #28b66b;
+      border-radius: 50%;
+    }
+
+    .note {
+      background: #f2edff;
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 25px;
+      text-align: center;
+      font-size: 13px;
+      color: #65528e;
+      line-height: 1.7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #88849a;
+      font-size: 13px;
+      border-top: 1px solid #eae6f5;
+    }
+
+    @media (max-width: 500px) {
+      .hero {
+        padding: 60px 20px 120px;
+      }
+
+      .contact-card {
+        padding: 25px 18px;
+        border-radius: 19px;
+      }
+
+      .info-box {
+        padding: 15px 12px;
+        gap: 12px;
+      }
+
+      .copy-btn {
+        padding: 9px;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="card">
-    <h1>📞 Contact Information</h1>
-    <p><strong>Email:</strong> <a href="mailto:robinsneha10@gmail.com">robinsneha10@gmail.com</a></p>
-    <p><strong>Operating Hours:</strong><br>Monday – Friday, 9 AM – 6 PM (IST)</p>
-  </div>
+
+  <header class="hero">
+    <h1>Get in Touch 👋</h1>
+    <p>Have a question or need assistance?<br>
+       We're always happy to hear from you.</p>
+  </header>
+
+  <main class="container">
+    <section class="contact-card">
+
+      <h2 class="card-title">Contact Information</h2>
+      <p class="subtitle">
+        Reach out to us for support, feedback, or general inquiries.
+        We'll be happy to assist you.
+      </p>
+
+      <div class="info-box">
+        <div class="icon">✉️</div>
+
+        <div class="info-content">
+          <h3>Email Support</h3>
+          <a href="mailto:robinsneha10@gmail.com">
+            robinsneha10@gmail.com
+          </a>
+        </div>
+
+        <button class="copy-btn" onclick="copyEmail()">
+          Copy
+        </button>
+      </div>
+
+      <div class="info-box">
+        <div class="icon">🕒</div>
+
+        <div class="info-content">
+          <h3>Operating Hours</h3>
+          <strong>Monday – Friday</strong>
+          <p style="font-size:14px; margin-top:6px; color:#555;">
+            9:00 AM – 6:00 PM (IST)
+          </p>
+          <div class="availability">
+            <span class="dot"></span>
+            Business Hours
+          </div>
+        </div>
+      </div>
+
+      <div class="note">
+        💜 We value your feedback and appreciate you
+        taking the time to contact us.
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Robinson Macwan. All rights reserved.
+    <p style="margin-top:7px;">Made with ❤️</p>
+  </footer>
+
+  <script>
+    function copyEmail() {
+      navigator.clipboard.writeText("robinsneha10@gmail.com")
+        .then(() => {
+          const btn = document.querySelector(".copy-btn");
+          btn.textContent = "Copied!";
+          setTimeout(() => btn.textContent = "Copy", 2000);
+        })
+        .catch(() => {
+          window.location.href = "mailto:robinsneha10@gmail.com";
+        });
+    }
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
 </body>
 </html>
